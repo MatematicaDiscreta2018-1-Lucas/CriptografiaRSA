@@ -1,0 +1,1 @@
+int main();		//Chamada inicial do programa
