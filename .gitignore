@@ -1,0 +1,4 @@
+# GCC
+*.o
+*.exe
+executavel
