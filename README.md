@@ -12,7 +12,7 @@ Encriptador e descriptador de textos usando criptografia RSA.
 	gcc -c interface.c -o interface.o
 	gcc -c main.c -o main.o
 	gcc -c menu.c -o menu.o
-	gcc chavePublica.o criptografar.o descriptografar.o interface.o main.o menu.o -o executavel
+	gcc chaves.o chavePublica.o criptografar.o descriptografar.o interface.o main.o menu.o -o executavel
 
 ou:
 
