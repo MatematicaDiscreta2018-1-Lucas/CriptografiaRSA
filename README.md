@@ -5,6 +5,7 @@ Encriptador e descriptador de textos usando criptografia RSA.
 
 ### Como compilar (via terminal):
 
+	gcc -c chaves.c -o chaves.o
 	gcc -c chavePublica.c -o chavePublica.o
 	gcc -c criptografar.c -o criptografar.o
 	gcc -c descriptografar.c -o descriptografar.o
