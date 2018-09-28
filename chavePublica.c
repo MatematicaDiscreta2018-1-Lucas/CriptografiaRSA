@@ -1,10 +1,10 @@
 #include <stdio.h>
+#include "chaves.h"
 #include "chavePublica.h"
 #include "interface.h"
 
-void escreveChave(int n, int e);
 void chavePublica() {
-	int p, q, n, e;
+	int p, q, e;
 	i_chavePublica(1);
 	scanf("%d", &p);
 	i_chavePublica(2);
@@ -12,4 +12,6 @@ void chavePublica() {
 	i_chavePublica(3);
 	scanf("%d", &e);
 	i_chavePublica(4);
+	escreveChave(geraN(p, q), e);
+	i_chavePublica(5);
 }

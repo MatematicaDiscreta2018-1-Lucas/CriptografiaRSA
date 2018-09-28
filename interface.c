@@ -52,7 +52,9 @@ void i_chavePublica(int opcao) {
 		printf("Digite 'e': ");
 	} else if(opcao == 4) {
 		printf("\n");
-		printf("Gerando chave publica...");
+		printf("Gerando chave publica...\n");
+	} else if(opcao == 5) {
+		printf("Chave publica gerada.\n");
 	}
 }
 void i_criptografar(int opcao) {
