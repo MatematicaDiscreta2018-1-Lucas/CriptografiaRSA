@@ -5,3 +5,5 @@ executavel
 
 # Gerado pelo programa
 ChavePublica.key
+*.txt
+*.crip
