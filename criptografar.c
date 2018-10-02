@@ -3,7 +3,7 @@
 #include "criptografar.h"
 #include "interface.h"
 
-int elevar(int numero, int base, int potencia) {
+l_int elevar(l_int numero, l_int base, int potencia) {
 	if(potencia == 1) {
 		return numero;
 	} else {
@@ -11,15 +11,13 @@ int elevar(int numero, int base, int potencia) {
 	}
 }
 
-int criptografaLetra(int caractereOriginal, int n, int e) {
-	int caractereCrip = caractereOriginal;
-	caractereCrip = caractereCrip - 65;
-	if(caractereCrip < 0) {
-		caractereCrip = 26;
+l_int criptografaLetra(int caractereOriginal, int n, int e) {
+	l_int caractereCrip = caractereOriginal;
+	if(caractereCrip < 65) {
+		caractereCrip = 91;
 	}
-	printf("\n%d -", caractereCrip);
+	caractereCrip = caractereCrip - 65;
 	caractereCrip = elevar(caractereCrip, caractereCrip, e) % n;
-	printf("\n%d -", caractereCrip);
 	return caractereCrip;
 }
 
@@ -32,7 +30,7 @@ void geraArquivoCriptografado(char nomeDoArquivoOriginal[], int n, int e) {
 	strcat(nomeDoArquivoCriptografado, ".crip");
 	arqCriptografado = fopen(nomeDoArquivoCriptografado, "w+");
 	while(fread(&caractereOriginal, sizeof(char), 1, arqOriginal) == 1) {
-		fprintf(arqCriptografado, "%d ", criptografaLetra(caractereOriginal, n, e));
+		fprintf(arqCriptografado, "%ld ", criptografaLetra(caractereOriginal, n, e));
 	}
 }
 
