@@ -30,7 +30,7 @@ void geraArquivoCriptografado(char nomeDoArquivoOriginal[], int n, int e) {
 	strcat(nomeDoArquivoCriptografado, ".crip");
 	arqCriptografado = fopen(nomeDoArquivoCriptografado, "w+");
 	while(fread(&caractereOriginal, sizeof(char), 1, arqOriginal) == 1) {
-		fprintf(arqCriptografado, "%ld ", criptografaLetra(caractereOriginal, n, e));
+		fprintf(arqCriptografado, "%lu ", criptografaLetra(caractereOriginal, n, e));
 	}
 }
 
