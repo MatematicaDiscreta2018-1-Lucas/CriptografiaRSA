@@ -67,7 +67,9 @@ void i_criptografar(int opcao) {
 		printf("Digite 'e': ");
 	} else if(opcao == 4) {
 		printf("\n");
-		printf("Gerando arquivo criptografado...");
+		printf("Gerando arquivo criptografado...\n");
+	} else if(opcao == 5) {
+		printf("Arquivo criptografado gerado.\n");
 	}
 }
 void i_descriptografar(int opcao) {
