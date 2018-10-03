@@ -3,7 +3,7 @@
 #include "criptografar.h"
 #include "interface.h"
 
-l_int elevar(l_int numero, l_int base, int potencia) {
+l_int elevar(l_int numero, l_int base, l_int potencia) {
 	if(potencia == 1) {
 		return numero;
 	} else {
@@ -11,7 +11,7 @@ l_int elevar(l_int numero, l_int base, int potencia) {
 	}
 }
 
-l_int criptografaLetra(int caractereOriginal, int n, int e) {
+l_int criptografaLetra(l_int caractereOriginal, l_int n, l_int e) {
 	l_int caractereCrip = caractereOriginal;
 	if(caractereCrip < 65) {
 		caractereCrip = 91;
@@ -21,7 +21,7 @@ l_int criptografaLetra(int caractereOriginal, int n, int e) {
 	return caractereCrip;
 }
 
-void geraArquivoCriptografado(char nomeDoArquivoOriginal[], int n, int e) {
+void geraArquivoCriptografado(char nomeDoArquivoOriginal[], l_int n, l_int e) {
 	char caractereOriginal;
 	FILE *arqOriginal = fopen(nomeDoArquivoOriginal, "r");
 	FILE *arqCriptografado = NULL;
@@ -36,15 +36,15 @@ void geraArquivoCriptografado(char nomeDoArquivoOriginal[], int n, int e) {
 
 
 void criptografar() {
-	int n, e;
+	l_int n, e;
 	char arquivo[FILENAME_MAX];
 	i_criptografar(1);
 	scanf("%[^\n]s", arquivo);
 	getchar();
 	i_criptografar(2);
-	scanf("%d", &n);
+	scanf("%lu", &n);
 	i_criptografar(3);
-	scanf("%d", &e);
+	scanf("%lu", &e);
 	i_criptografar(4);
 	geraArquivoCriptografado(arquivo, n, e);
 	i_criptografar(5);
