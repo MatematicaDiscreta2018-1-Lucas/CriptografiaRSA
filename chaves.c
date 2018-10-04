@@ -10,10 +10,10 @@ l_int mod(l_int a, l_int b) {
 	return (r);
 }
 
-l_int elevar(l_int numero, l_int base, l_int potencia) {
-	if(potencia == 1) return numero; 
+/*l_int elevar(l_int numero, l_int base, l_int potencia) {
+	if(potencia == 1) return numero;
 	else return elevar(numero*base, base, potencia-1);
-}
+}*/
 
 void escreveChave(l_int n, l_int e) {
 	FILE *chave = NULL;
@@ -26,7 +26,7 @@ void escreveChave(l_int n, l_int e) {
 l_int geraN(l_int p, l_int q) {
 	return p * q;
 }
-	
+
 l_int geraD(l_int fiN, l_int e, int c) {
 	l_int r;
 	r = mod(e, fiN);
