@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 #include "criptografar.h"
 #include "interface.h"
 
 l_int criptografaLetra(l_int caractereOriginal, l_int n, l_int e) {
+	l_int r = 1;
 	l_int caractereCrip = caractereOriginal;
 	if(caractereCrip < 65) caractereCrip = 91;
 	caractereCrip = caractereCrip - 65;
-	caractereCrip = (l_int)pow(caractereCrip, e) % n;
-	return caractereCrip;
+	for(; e > 0; e--) r = (r * caractereCrip) % n;
+	return r;
 }
 
 void geraArquivoCriptografado(char nomeDoArquivoOriginal[], l_int n, l_int e) {
