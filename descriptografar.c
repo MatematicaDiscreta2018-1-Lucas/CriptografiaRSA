@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "chaves.h"
 #include "descriptografar.h"
 #include "interface.h"
 
 int descriptografaLetra(l_int caractereCriptografado, l_int n, l_int d) {
-	return elevar(caractereCriptografado, caractereCriptografado, d) % n;
+	return (l_int)pow(caractereCriptografado, d) % n;
 }
 
 void geraArquivoDescriptografado(char nomeDoArquivoCriptografado[], l_int n, l_int d) {

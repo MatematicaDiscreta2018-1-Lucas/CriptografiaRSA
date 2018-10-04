@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include "criptografar.h"
 #include "interface.h"
 
@@ -7,7 +8,7 @@ l_int criptografaLetra(l_int caractereOriginal, l_int n, l_int e) {
 	l_int caractereCrip = caractereOriginal;
 	if(caractereCrip < 65) caractereCrip = 91;
 	caractereCrip = caractereCrip - 65;
-	caractereCrip = elevar(caractereCrip, caractereCrip, e) % n;
+	caractereCrip = (l_int)pow(caractereCrip, e) % n;
 	return caractereCrip;
 }
 
