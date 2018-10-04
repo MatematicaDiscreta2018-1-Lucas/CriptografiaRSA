@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 #include "chaves.h"
 #include "descriptografar.h"
 #include "interface.h"
 
-l_int descriptografaLetra(l_int caractereCriptografado, l_int n, l_int d) {
-	printf("\t%lu - %lu\n", elevar(caractereCriptografado, caractereCriptografado, d), n);
-	return (l_int)pow(caractereCriptografado, d) % n;
+l_int descriptografaLetra(char caractereCriptografado, l_int n, l_int d) {
+	l_int r = 1;
+	for(; d > 0; d--) r = (r * caractereCriptografado) % n;
+	return r;
 }
 
 void geraArquivoDescriptografado(char nomeDoArquivoCriptografado[], l_int n, l_int d) {
@@ -26,7 +26,7 @@ void geraArquivoDescriptografado(char nomeDoArquivoCriptografado[], l_int n, l_i
 		if(caractereCriptografado == 32) {
 			i = 0;
 			numero = atoi(num);
-			fprintf(arqDescriptografado, "%lu ", descriptografaLetra(numero, n, d));
+			fprintf(arqDescriptografado, "%lu ", descriptografaLetra((char)numero, n, d));
 		} else {
 			num[i] = caractereCriptografado;
 			i++;
@@ -48,7 +48,6 @@ void descriptografar() {
 	i_descriptografar(4);
 	scanf("%lu", &e);
 	i_descriptografar(5);
-	geraArquivoDescriptografado(arquivo, geraN(p, q), geraD(p, q, e));
-	printf("\t-%lu-", geraD(p, q, e));
+	geraArquivoDescriptografado(arquivo, geraN(p, q), geraD((p-1)*(q-1), e, 1));
 	i_descriptografar(6);
 }
