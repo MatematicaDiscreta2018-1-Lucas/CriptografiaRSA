@@ -84,6 +84,8 @@ void i_descriptografar(int opcao) {
 		printf("Digite 'e': ");
 	} else if(opcao == 5) {
 		printf("\n");
-		printf("Gerando arquivo descriptografado...");
+		printf("Gerando arquivo descriptografado...\n");
+	} else if(opcao == 6) {
+		printf("Arquivo descriptografado gerado.\n");
 	}
 }
