@@ -48,6 +48,6 @@ void descriptografar() {
 	i_descriptografar(4);
 	scanf("%lu", &e);
 	i_descriptografar(5);
-	geraArquivoDescriptografado(arquivo, geraN(p, q), geraD((p-1)*(q-1), e, 1));
+	geraArquivoDescriptografado(arquivo, geraN(p, q), geraD((p-1)*(q-1), e));
 	i_descriptografar(6);
 }
