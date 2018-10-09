@@ -5,7 +5,7 @@
 #include "descriptografar.h"
 #include "interface.h"
 
-l_int descriptografaLetra(char caractereCriptografado, l_int n, l_int d) {
+l_int descriptografaLetra(l_int caractereCriptografado, l_int n, l_int d) {
 	l_int r = 1;
 	for(; d > 0; d--) r = (r * caractereCriptografado) % n;
 	return r;
@@ -26,7 +26,13 @@ void geraArquivoDescriptografado(char nomeDoArquivoCriptografado[], l_int n, l_i
 		if(caractereCriptografado == 32) {
 			i = 0;
 			numero = atoi(num);
-			fprintf(arqDescriptografado, "%lu ", descriptografaLetra((char)numero, n, d));
+			numero = descriptografaLetra(numero, n, d);
+			if(numero == 26) {
+				numero = 32;
+			} else {
+				numero = numero + 65;
+			}
+			fprintf(arqDescriptografado, "%c", numero);
 		} else {
 			num[i] = caractereCriptografado;
 			i++;
@@ -48,6 +54,6 @@ void descriptografar() {
 	i_descriptografar(4);
 	scanf("%lu", &e);
 	i_descriptografar(5);
-	geraArquivoDescriptografado(arquivo, geraN(p, q), geraD((p-1)*(q-1), e));
+	geraArquivoDescriptografado(arquivo, geraN(p, q), geraD(geraFiN(p, q), e));
 	i_descriptografar(6);
 }
