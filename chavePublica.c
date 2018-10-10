@@ -4,7 +4,7 @@
 #include "interface.h"
 
 void chavePublica() {
-	int p, q, e;
+	l_int p, q, e;
 	i_chavePublica(1);
 	scanf("%d", &p);
 	i_chavePublica(2);

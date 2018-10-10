@@ -14,7 +14,7 @@ l_int descriptografaLetra(l_int caractereCriptografado, l_int n, l_int d) {
 void geraArquivoDescriptografado(char nomeDoArquivoCriptografado[], l_int n, l_int d) {
 	unsigned char caractereCriptografado;
 	l_int numero;
-	int i;
+	int i = 0, j;
 	char num[100];
 	FILE *arqCriptografado = fopen(nomeDoArquivoCriptografado, "r");
 	FILE *arqDescriptografado = NULL;
@@ -27,6 +27,7 @@ void geraArquivoDescriptografado(char nomeDoArquivoCriptografado[], l_int n, l_i
 			i = 0;
 			numero = atoi(num);
 			numero = descriptografaLetra(numero, n, d);
+			for(j = 0; j < strlen(num); j++) num[j] = ' ';
 			if(numero == 26) {
 				numero = 32;
 			} else {
