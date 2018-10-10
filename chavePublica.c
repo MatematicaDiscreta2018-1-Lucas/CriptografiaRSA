@@ -6,11 +6,11 @@
 void chavePublica() {
 	l_int p, q, e;
 	i_chavePublica(1);
-	scanf("%d", &p);
+	scanf("%lu", &p);
 	i_chavePublica(2);
-	scanf("%d", &q);
+	scanf("%lu", &q);
 	i_chavePublica(3);
-	scanf("%d", &e);
+	scanf("%lu", &e);
 	i_chavePublica(4);
 	escreveChave(geraN(p, q), e);
 	i_chavePublica(5);
